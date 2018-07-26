@@ -1,3 +1,5 @@
+import loadReactScript from  '../load-react-script';
+
 function ProfileConfig($stateProvider) {
   'ngInject';
 
@@ -7,7 +9,11 @@ function ProfileConfig($stateProvider) {
     url: '/@:username',
     controller: 'ProfileCtrl',
     controllerAs: '$ctrl',
-    templateUrl: 'profile/profile.html',
+    templateProvider: function() {
+      return loadReactScript().then(() => {
+        return  '<div ng-include="\'profile/profile.html\'"></div>';
+      });
+    },
     resolve: {
       profile: function(Profile, $state, $stateParams) {
         return Profile.get($stateParams.username).then(
