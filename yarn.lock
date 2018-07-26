@@ -2,6 +2,20 @@
 # yarn lockfile v1
 
 
+"@types/angular@^1.6.39":
+  version "1.6.49"
+  resolved "https://registry.yarnpkg.com/@types/angular/-/angular-1.6.49.tgz#8a5dd666100155d27cda9801f961360eb24b8d96"
+
+"@types/lodash.frompairs@^4.0.3":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@types/lodash.frompairs/-/lodash.frompairs-4.0.4.tgz#d4448869b4ea75b706bbc29d82072586905344e9"
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash@*", "@types/lodash@^4.14.85":
+  version "4.14.113"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.113.tgz#1d1cb063f17fec4cc46f1a90d978ebf441113061"
+
 "@webassemblyjs/ast@1.5.13":
   version "1.5.13"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.5.13.tgz#81155a570bd5803a30ec31436bc2c9c0ede38f25"
@@ -215,7 +229,7 @@ angular-ui-router@^0.4.2:
   dependencies:
     angular "^1.0.8"
 
-angular@^1.0.8, angular@^1.5.0-rc.2:
+angular@>=1.5, angular@>=1.5.0, angular@^1.0.8, angular@^1.5.0-rc.2:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/angular/-/angular-1.7.2.tgz#687b955dbe5c533f8d73460461707af00360251f"
 
@@ -3486,6 +3500,10 @@ lodash.escape@^3.0.0:
   dependencies:
     lodash._root "^3.0.0"
 
+lodash.frompairs@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/lodash.frompairs/-/lodash.frompairs-4.0.1.tgz#bc4e5207fa2757c136e573614e9664506b2b1bd2"
+
 lodash.isarguments@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/lodash.isarguments/-/lodash.isarguments-3.1.0.tgz#2f573d85c6a24289ff00663b491c1d338ff3458a"
@@ -3926,6 +3944,15 @@ ng-annotate@^1.0.2:
     stringmap "~0.2.2"
     stringset "~0.2.1"
     tryor "~0.1.2"
+
+ngcomponent@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/ngcomponent/-/ngcomponent-4.1.0.tgz#793e379138f552ea0cd2c767ad0aa7057678e228"
+  dependencies:
+    "@types/angular" "^1.6.39"
+    "@types/lodash" "^4.14.85"
+    angular ">=1.5.0"
+    lodash "^4.17.4"
 
 nice-try@^1.0.4:
   version "1.0.4"
@@ -4597,6 +4624,15 @@ react-dom@^16.4.1:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.0"
+
+react2angular@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/react2angular/-/react2angular-4.0.4.tgz#501e75a7ca191c4af6f5582513c45a9ee0375602"
+  dependencies:
+    "@types/lodash.frompairs" "^4.0.3"
+    angular ">=1.5"
+    lodash.frompairs "^4.0.1"
+    ngcomponent "^4.1.0"
 
 react@^16.4.1:
   version "16.4.1"

@@ -23,6 +23,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react2angular": "^4.0.4",
     "vinyl-source-stream": "^1.1.0"
   },
   "devDependencies": {
