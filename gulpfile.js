@@ -1,4 +1,5 @@
 var gulp          = require('gulp');
+var webpackStream = require('webpack-stream');
 var notify        = require('gulp-notify');
 var source        = require('vinyl-source-stream');
 var browserify    = require('browserify');
@@ -9,6 +10,7 @@ var rename        = require('gulp-rename');
 var templateCache = require('gulp-angular-templatecache');
 var uglify        = require('gulp-uglify');
 var merge         = require('merge-stream');
+var webpackConfig = require('./webpack.config.js');
 
 // Where our files are located
 var jsFiles   = "src/js/**/*.js";
@@ -58,7 +60,7 @@ gulp.task('views', function() {
 
 // This task is used for building production ready
 // minified JS/CSS files into the dist/ folder
-gulp.task('build', ['html', 'browserify'], function() {
+gulp.task('build', ['html', 'browserify', 'webpack'], function() {
   var html = gulp.src("build/index.html")
                  .pipe(gulp.dest('./dist/'));
 
@@ -69,7 +71,13 @@ gulp.task('build', ['html', 'browserify'], function() {
   return merge(html,js);
 });
 
-gulp.task('default', ['html', 'browserify'], function() {
+gulp.task('webpack', function() {
+  return gulp.src('src/react/index.js')
+    .pipe(webpackStream(webpackConfig))
+    .pipe(gulp.dest('./build/'))
+});
+
+gulp.task('default', ['html', 'browserify', 'webpack'], function() {
 
   browserSync.init(['./build/**/**.**'], {
     server: "./build",
@@ -83,4 +91,5 @@ gulp.task('default', ['html', 'browserify'], function() {
   gulp.watch("src/index.html", ['html']);
   gulp.watch(viewFiles, ['views']);
   gulp.watch(jsFiles, ['browserify']);
+  gulp.watch('src/react/**/*.js', ['webpack']);
 });
