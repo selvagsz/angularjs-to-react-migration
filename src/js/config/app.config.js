@@ -1,7 +1,9 @@
 import authInterceptor from './auth.interceptor'
 
-function AppConfig($httpProvider, $stateProvider, $locationProvider, $urlRouterProvider) {
+function AppConfig($httpProvider, $stateProvider, $locationProvider, $urlRouterProvider, $compileProvider) {
   'ngInject';
+
+  app.$compileProvider = $compileProvider;
 
   $httpProvider.interceptors.push(authInterceptor);
 
